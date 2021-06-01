@@ -3,6 +3,7 @@ package ar.edu.unju.fi.models;
 import java.time.LocalDate;
 
 public class Orders {
+	
 	private int orderNumber;
 	private LocalDate orderDate;
 	private LocalDate requiredDate;
@@ -16,6 +17,26 @@ public class Orders {
 	public Orders() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	/**
+	 * @param orderNumber
+	 * @param orderDate
+	 * @param requiredDate
+	 * @param shippedDate
+	 * @param status
+	 * @param comments
+	 * @param customerNumber
+	 */
+	public Orders(int orderNumber, LocalDate orderDate, LocalDate requiredDate, LocalDate shippedDate, String status,
+			String comments, int customerNumber) {
+		super();
+		this.orderNumber = orderNumber;
+		this.orderDate = orderDate;
+		this.requiredDate = requiredDate;
+		this.shippedDate = shippedDate;
+		this.status = status;
+		this.comments = comments;
+		this.customerNumber = customerNumber;
 	}
 	/**
 	 * @return the orderNumber

@@ -1,12 +1,14 @@
 package ar.edu.unju.fi.models;
 
+
+
 public class Orderdetails {
 
 	private int orderNumber;
-	private String producCode;
-	private int qualityOrdered;
-	private int priceEach;
-	private int orderLineNumber;
+	private String productCode;
+	private int quantityOrdered;
+	private double priceEach;
+	private int orderLineNumber;//smallint
 	/**
 	 * 
 	 */
@@ -16,16 +18,17 @@ public class Orderdetails {
 	}
 	/**
 	 * @param orderNumber
-	 * @param producCode
-	 * @param qualityOrdered
+	 * @param productCode
+	 * @param quantityOrdered
 	 * @param priceEach
 	 * @param orderLineNumber
 	 */
-	public Orderdetails(int orderNumber, String producCode, int qualityOrdered, int priceEach, int orderLineNumber) {
+	public Orderdetails(int orderNumber, String productCode, int quantityOrdered, double priceEach,
+			int orderLineNumber) {
 		super();
 		this.orderNumber = orderNumber;
-		this.producCode = producCode;
-		this.qualityOrdered = qualityOrdered;
+		this.productCode = productCode;
+		this.quantityOrdered = quantityOrdered;
 		this.priceEach = priceEach;
 		this.orderLineNumber = orderLineNumber;
 	}
@@ -42,39 +45,39 @@ public class Orderdetails {
 		this.orderNumber = orderNumber;
 	}
 	/**
-	 * @return the producCode
+	 * @return the productCode
 	 */
-	public String getProducCode() {
-		return producCode;
+	public String getProductCode() {
+		return productCode;
 	}
 	/**
-	 * @param producCode the producCode to set
+	 * @param productCode the productCode to set
 	 */
-	public void setProducCode(String producCode) {
-		this.producCode = producCode;
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
 	}
 	/**
-	 * @return the qualityOrdered
+	 * @return the quantityOrdered
 	 */
-	public int getQualityOrdered() {
-		return qualityOrdered;
+	public int getQuantityOrdered() {
+		return quantityOrdered;
 	}
 	/**
-	 * @param qualityOrdered the qualityOrdered to set
+	 * @param quantityOrdered the quantityOrdered to set
 	 */
-	public void setQualityOrdered(int qualityOrdered) {
-		this.qualityOrdered = qualityOrdered;
+	public void setQuantityOrdered(int quantityOrdered) {
+		this.quantityOrdered = quantityOrdered;
 	}
 	/**
 	 * @return the priceEach
 	 */
-	public int getPriceEach() {
+	public double getPriceEach() {
 		return priceEach;
 	}
 	/**
 	 * @param priceEach the priceEach to set
 	 */
-	public void setPriceEach(int priceEach) {
+	public void setPriceEach(double priceEach) {
 		this.priceEach = priceEach;
 	}
 	/**
@@ -91,8 +94,8 @@ public class Orderdetails {
 	}
 	@Override
 	public String toString() {
-		return "Orderdetails [orderNumber=" + orderNumber + ", producCode=" + producCode + ", qualityOrdered="
-				+ qualityOrdered + ", priceEach=" + priceEach + ", orderLineNumber=" + orderLineNumber + "]";
+		return "Orderdetails [orderNumber=" + orderNumber + ", productCode=" + productCode + ", quantityOrdered="
+				+ quantityOrdered + ", priceEach=" + priceEach + ", orderLineNumber=" + orderLineNumber + "]";
 	}
 	
 	

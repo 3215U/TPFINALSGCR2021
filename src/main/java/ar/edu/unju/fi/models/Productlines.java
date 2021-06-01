@@ -1,10 +1,12 @@
 package ar.edu.unju.fi.models;
 
+import java.sql.Blob;
+
 public class Productlines {
-	private String ProducLine;//nose q variable va
+	private String productLine;
 	private String textDescription;
 	private String htmlDescription;
-	private  String image;//nose de imagen
+	private Blob image;
 	/**
 	 * 
 	 */
@@ -13,29 +15,29 @@ public class Productlines {
 		// TODO Auto-generated constructor stub
 	}
 	/**
-	 * @param producLine
+	 * @param productLine
 	 * @param textDescription
 	 * @param htmlDescription
 	 * @param image
 	 */
-	public Productlines(String producLine, String textDescription, String htmlDescription, String image) {
+	public Productlines(String productLine, String textDescription, String htmlDescription, Blob image) {
 		super();
-		ProducLine = producLine;
+		this.productLine = productLine;
 		this.textDescription = textDescription;
 		this.htmlDescription = htmlDescription;
 		this.image = image;
 	}
 	/**
-	 * @return the producLine
+	 * @return the productLine
 	 */
-	public String getProducLine() {
-		return ProducLine;
+	public String getProductLine() {
+		return productLine;
 	}
 	/**
-	 * @param producLine the producLine to set
+	 * @param productLine the productLine to set
 	 */
-	public void setProducLine(String producLine) {
-		ProducLine = producLine;
+	public void setProductLine(String productLine) {
+		this.productLine = productLine;
 	}
 	/**
 	 * @return the textDescription
@@ -64,22 +66,20 @@ public class Productlines {
 	/**
 	 * @return the image
 	 */
-	public String getImage() {
+	public Blob getImage() {
 		return image;
 	}
 	/**
 	 * @param image the image to set
 	 */
-	public void setImage(String image) {
+	public void setImage(Blob image) {
 		this.image = image;
 	}
 	@Override
 	public String toString() {
-		return "Productlines [ProducLine=" + ProducLine + ", textDescription=" + textDescription + ", htmlDescription="
-				+ htmlDescription + ", image=" + image + "]";
+		return "Productlines [productLine=" + productLine + ", textDescription=" + textDescription
+				+ ", htmlDescription=" + htmlDescription + ", image=" + image + "]";
 	}
-	
-	
-	
 
+	
 }

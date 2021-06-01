@@ -2,17 +2,15 @@ package ar.edu.unju.fi.models;
 
 public class Products {
 	
-	private int productCode;
-	private String productoName;
-	private String productoLine;//nose a que se refiere 
-	private int Scale;//pienso q es de nuemros
-	private String productVendedor;
-	private String productDescription;
-	private int quantyInStock;
+	private String productCode;//es varchar
+	private String productName;
+	private String productLine;
+	private String productScale;
+	private String productVendor;
+	private String productDescription;//text
+	private int quantityInStock;//smallint
 	private double buyPrice;
-	private int MSRP;//nose q es 
-	
-	
+	private double MSRP;
 	/**
 	 * 
 	 */
@@ -20,186 +18,145 @@ public class Products {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-
 	/**
 	 * @param productCode
-	 * @param productoName
-	 * @param productoLine
-	 * @param scale
-	 * @param productVendedor
+	 * @param productName
+	 * @param productLine
+	 * @param productScale
+	 * @param productVendor
 	 * @param productDescription
-	 * @param quantyInStock
+	 * @param quantityInStock
 	 * @param buyPrice
 	 * @param mSRP
 	 */
-	public Products(int productCode, String productoName, String productoLine, int scale, String productVendedor,
-			String productDescription, int quantyInStock, double buyPrice, int mSRP) {
+	public Products(String productCode, String productName, String productLine, String productScale,
+			String productVendor, String productDescription, int quantityInStock, double buyPrice, double mSRP) {
 		super();
 		this.productCode = productCode;
-		this.productoName = productoName;
-		this.productoLine = productoLine;
-		Scale = scale;
-		this.productVendedor = productVendedor;
+		this.productName = productName;
+		this.productLine = productLine;
+		this.productScale = productScale;
+		this.productVendor = productVendor;
 		this.productDescription = productDescription;
-		this.quantyInStock = quantyInStock;
+		this.quantityInStock = quantityInStock;
 		this.buyPrice = buyPrice;
 		MSRP = mSRP;
 	}
-
-
 	/**
 	 * @return the productCode
 	 */
-	public int getProductCode() {
+	public String getProductCode() {
 		return productCode;
 	}
-
-
 	/**
 	 * @param productCode the productCode to set
 	 */
-	public void setProductCode(int productCode) {
+	public void setProductCode(String productCode) {
 		this.productCode = productCode;
 	}
-
-
 	/**
-	 * @return the productoName
+	 * @return the productName
 	 */
-	public String getProductoName() {
-		return productoName;
+	public String getProductName() {
+		return productName;
 	}
-
-
 	/**
-	 * @param productoName the productoName to set
+	 * @param productName the productName to set
 	 */
-	public void setProductoName(String productoName) {
-		this.productoName = productoName;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
-
-
 	/**
-	 * @return the productoLine
+	 * @return the productLine
 	 */
-	public String getProductoLine() {
-		return productoLine;
+	public String getProductLine() {
+		return productLine;
 	}
-
-
 	/**
-	 * @param productoLine the productoLine to set
+	 * @param productLine the productLine to set
 	 */
-	public void setProductoLine(String productoLine) {
-		this.productoLine = productoLine;
+	public void setProductLine(String productLine) {
+		this.productLine = productLine;
 	}
-
-
 	/**
-	 * @return the scale
+	 * @return the productScale
 	 */
-	public int getScale() {
-		return Scale;
+	public String getProductScale() {
+		return productScale;
 	}
-
-
 	/**
-	 * @param scale the scale to set
+	 * @param productScale the productScale to set
 	 */
-	public void setScale(int scale) {
-		Scale = scale;
+	public void setProductScale(String productScale) {
+		this.productScale = productScale;
 	}
-
-
 	/**
-	 * @return the productVendedor
+	 * @return the productVendor
 	 */
-	public String getProductVendedor() {
-		return productVendedor;
+	public String getProductVendor() {
+		return productVendor;
 	}
-
-
 	/**
-	 * @param productVendedor the productVendedor to set
+	 * @param productVendor the productVendor to set
 	 */
-	public void setProductVendedor(String productVendedor) {
-		this.productVendedor = productVendedor;
+	public void setProductVendor(String productVendor) {
+		this.productVendor = productVendor;
 	}
-
-
 	/**
 	 * @return the productDescription
 	 */
 	public String getProductDescription() {
 		return productDescription;
 	}
-
-
 	/**
 	 * @param productDescription the productDescription to set
 	 */
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
 	}
-
-
 	/**
-	 * @return the quantyInStock
+	 * @return the quantityInStock
 	 */
-	public int getQuantyInStock() {
-		return quantyInStock;
+	public int getQuantityInStock() {
+		return quantityInStock;
 	}
-
-
 	/**
-	 * @param quantyInStock the quantyInStock to set
+	 * @param quantityInStock the quantityInStock to set
 	 */
-	public void setQuantyInStock(int quantyInStock) {
-		this.quantyInStock = quantyInStock;
+	public void setQuantityInStock(int quantityInStock) {
+		this.quantityInStock = quantityInStock;
 	}
-
-
 	/**
 	 * @return the buyPrice
 	 */
 	public double getBuyPrice() {
 		return buyPrice;
 	}
-
-
 	/**
 	 * @param buyPrice the buyPrice to set
 	 */
 	public void setBuyPrice(double buyPrice) {
 		this.buyPrice = buyPrice;
 	}
-
-
 	/**
 	 * @return the mSRP
 	 */
-	public int getMSRP() {
+	public double getMSRP() {
 		return MSRP;
 	}
-
-
 	/**
 	 * @param mSRP the mSRP to set
 	 */
-	public void setMSRP(int mSRP) {
+	public void setMSRP(double mSRP) {
 		MSRP = mSRP;
 	}
-
-
 	@Override
 	public String toString() {
-		return "Products [productCode=" + productCode + ", productoName=" + productoName + ", productoLine="
-				+ productoLine + ", Scale=" + Scale + ", productVendedor=" + productVendedor + ", productDescription="
-				+ productDescription + ", quantyInStock=" + quantyInStock + ", buyPrice=" + buyPrice + ", MSRP=" + MSRP
-				+ "]";
+		return "Products [productCode=" + productCode + ", productName=" + productName + ", productLine=" + productLine
+				+ ", productScale=" + productScale + ", productVendor=" + productVendor + ", productDescription="
+				+ productDescription + ", quantityInStock=" + quantityInStock + ", buyPrice=" + buyPrice + ", MSRP="
+				+ MSRP + "]";
 	}
-	
-	
 
+	
 }
