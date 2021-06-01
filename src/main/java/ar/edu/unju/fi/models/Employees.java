@@ -1,7 +1,6 @@
 package ar.edu.unju.fi.models;
 
 public class Employees {
-
 	private int employeeNumber;
 	private String lastName;
 	private String firstName;
