@@ -1,14 +1,41 @@
 package ar.edu.unju.fi.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+@Component
+@Entity
+@Table(name="OFFICES")
 public class Offices {	
+	
+	@Column(name = "offic_officeCode")
 	private int officeCode;
+	
+	@Column(name = "offic_city")
 	private String city;
-	private int  phone;
+	
+	@Column(name = "offic_phone")
+	private int phone;
+	
+	@Column(name = "offic_addressLine1")
 	private String addressLine1;
+	
+	@Column(name = "offic_addressLine2")
 	private String addressLine2;
+	
+	@Column(name = "offic_state")
 	private String state;//creo q es string
+	
+	@Column(name = "offic_country")
 	private String country;
+	
+	@Column(name = "offic_postalCode")
 	private String postalCode;
+	
+	@Column(name = "offic_territory")
 	private String territory;
 	/**
 	 * 

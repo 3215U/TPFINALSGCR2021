@@ -1,15 +1,44 @@
 package ar.edu.unju.fi.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
+import org.springframework.stereotype.Component;
+
+@Component
+@Entity
+@Table(name="PRODUCTS")
 public class Products {
 	
+	@Column(name = "produc_code")
 	private String productCode;//es varchar
+	
+	@Column(name = "produc_name")
 	private String productName;
+	
+	@Column(name = "produc_line")
 	private String productLine;
+	
+	@Column(name = "produc_scale")
 	private String productScale;
+	
+	@Column(name = "produc_vendedor")
 	private String productVendor;
+	
+	@Column(name = "produc_description")
 	private String productDescription;//text
+	
+	@Column(name = "produc_quantityinStock")
 	private int quantityInStock;//smallint
+	
+	@Column(name = "produc_buyprice")
 	private double buyPrice;
+	
+	@Column(name = "produc_msrp")
 	private double MSRP;
 	/**
 	 * 

@@ -2,14 +2,36 @@ package ar.edu.unju.fi.models;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+@Component
+@Entity
+@Table(name="ORDERS")
 public class Orders {
-	
+
+	@Column(name="orders_ordernumber")
 	private int orderNumber;
+	
+	@Column(name="orders_orderdate")
 	private LocalDate orderDate;
+	
+	@Column(name="orders_requiredDate")
 	private LocalDate requiredDate;
+	
+	@Column(name="orders_shippeddate")
 	private LocalDate shippedDate;
+	
+	@Column(name="orders_status")
 	private String status;
+	
+	@Column(name="orders_comments")
 	private String comments;
+	
+	@Column(name="orders_customernumber")
 	private int customerNumber;
 	/**
 	 * 

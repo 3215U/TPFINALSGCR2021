@@ -1,13 +1,37 @@
 package ar.edu.unju.fi.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+@Component
+@Entity
+@Table(name="EMPLOYEES")
 public class Employees {
+	@Column(name = "empl_employeenumber")
 	private int employeeNumber;
+	
+	@Column(name = "empl_lastname")
 	private String lastName;
+	
+	@Column(name = "empl_firstname")
 	private String firstName;
+	
+	@Column(name = "empl_extension")
 	private String extension;
+	
+	@Column(name = "empl_email")
 	private String email;
+	
+	@Column(name = "empl_officecode")
 	private String officeCode;
+	
+	@Column(name = "empl_reportsto")
 	private int reportsTo;//
+	
+	@Column(name = "jobtitle")
 	private String jobTitle;
 	/**
 	 * 

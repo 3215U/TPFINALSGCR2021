@@ -1,13 +1,30 @@
 package ar.edu.unju.fi.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
 
+@Component
+@Entity
+@Table(name="ORDERDETAILS")
 public class Orderdetails {
-
+	
+	
+	@Column(name = "Orderdetails_ordernumber")
 	private int orderNumber;
+	
+	@Column(name = "Orderdetails_productcode")
 	private String productCode;
+	
+	@Column(name = "Orderdetails_quantityOrdered")
 	private int quantityOrdered;
+	
+	@Column(name = "Orderdetails_priceeach")
 	private double priceEach;
+	
+	@Column(name = "Orderdetails_orderlinenumber")
 	private int orderLineNumber;//smallint
 	/**
 	 * 

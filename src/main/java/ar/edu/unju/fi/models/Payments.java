@@ -2,11 +2,27 @@ package ar.edu.unju.fi.models;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+@Component
+@Entity
+@Table(name="PAYMENTS")
 public class Payments {
 	
+	@Column(name="pay_customernumber")
 	private int customerNumber;
+	
+	@Column(name="pay_checknumber")
 	private Boolean checkNumber;
+	
+	@Column(name="pay_paymentdate")
 	private LocalDate paymentDate;
+	
+	@Column(name="pay_amount")
 	private double amount;
 	/**
 	 * 

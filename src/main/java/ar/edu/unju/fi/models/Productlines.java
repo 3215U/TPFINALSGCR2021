@@ -2,10 +2,27 @@ package ar.edu.unju.fi.models;
 
 import java.sql.Blob;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+@Component
+@Entity
+@Table(name="PRODUCTLINES")
 public class Productlines {
+	
+	@Column(name="productlines_productline")
 	private String productLine;
+	
+	@Column(name="productlines_textdescription")
 	private String textDescription;
+	
+	@Column(name="productlines_htmldescription")
 	private String htmlDescription;
+	
+	@Column(name="productlines_image")
 	private Blob image;
 	/**
 	 * 

@@ -1,19 +1,51 @@
 package ar.edu.unju.fi.models;
 
-public class Customers {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
+@Component
+@Entity
+@Table(name="CUSTOMERS")
+public class Customers {
+	@Column(name = "customer_nombre")
 	private int customerNumber;
+	@Column(name = "customer_customername")
 	private String customerName;
+	
+	@Column(name = "customer_contactlastname")
 	private String contactLastName;
+	
+	@Column(name = "customer_contactfirstname")
 	private String contactFirstName;
+	
+	@Column(name = "customer_phone")
 	private String phone;//es varchar es la variable
+	
+	@Column(name = "customer_addressLine1")
 	private String addressLine1;
+	
+	@Column(name = "customer_addressLine2")
 	private String addressLine2;
+	
+	@Column(name = "customer_city")
 	private String city;
+	
+	@Column(name = "customer_state")
 	private String state;
+	
+	@Column(name = "customer_postalCode")
 	private String postalCode;
+	
+	@Column(name = "customer_coutry")
 	private String coutry;
-	private int salesRepEmployeeNumber;	
+	
+	@Column(name = "customer_salesRepEmployeeNumbe")
+	private int salesRepEmployeeNumber;
+	
+	@Column(name = "customer_creditlimit")
 	private Double creditLimit;
 	/**
 	 * 
