@@ -4,6 +4,7 @@ import java.sql.Blob;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Component;
 @Table(name="PRODUCTLINES")
 public class Productlines {
 	
+	
+	@OneToMany
 	@Column(name="productlines_productline")
 	private String productLine;
 	

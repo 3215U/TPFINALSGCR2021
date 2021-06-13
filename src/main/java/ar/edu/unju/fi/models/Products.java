@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -18,6 +19,7 @@ public class Products {
 	@Column(name = "produc_code")
 	private String productCode;//es varchar
 	
+	@OneToOne
 	@Column(name = "produc_name")
 	private String productName;
 	
