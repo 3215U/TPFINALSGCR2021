@@ -2,11 +2,11 @@ package ar.edu.unju.fi.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ManyToAny;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 @Table(name="PRODUCTS")
 public class Products {
 	
+	@ManyToOne
 	@Column(name = "produc_code")
 	private String productCode;//es varchar
 	

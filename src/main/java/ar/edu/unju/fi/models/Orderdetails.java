@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 @Table(name="ORDERDETAILS")
 public class Orderdetails {
 	
-	
 	@Column(name = "Orderdetails_ordernumber")
 	private int orderNumber;
 	
