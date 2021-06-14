@@ -4,7 +4,10 @@ import java.sql.Blob;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -12,52 +15,72 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table(name="PRODUCTLINES")
-public class Productlines {
+public class ProductLines {
 	
+
+	@Id
+	@Column(name="prodL_id")
+	private Long id; 
 	
-	@OneToMany
-	@Column(name="productlines_productline")
-	private String productLine;
+	@Column(name="prodL_productlinename")
+	private String productLinesName;
 	
-	@Column(name="productlines_textdescription")
+	@Column(name="prodL_textdescription")
 	private String textDescription;
 	
-	@Column(name="productlines_htmldescription")
+	@Column(name="prodL_htmldescription")
 	private String htmlDescription;
 	
-	@Column(name="productlines_image")
+	@Column(name="prodL_image")
 	private Blob image;
+	
+	
+	
 	/**
 	 * 
 	 */
-	public Productlines() {
+	public ProductLines() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	/**
-	 * @param productLine
+	 * @param id
+	 * @param productLinesName
 	 * @param textDescription
 	 * @param htmlDescription
 	 * @param image
 	 */
-	public Productlines(String productLine, String textDescription, String htmlDescription, Blob image) {
+	public ProductLines(Long id, String productLinesName, String textDescription, String htmlDescription, Blob image) {
 		super();
-		this.productLine = productLine;
+		this.id = id;
+		this.productLinesName = productLinesName;
 		this.textDescription = textDescription;
 		this.htmlDescription = htmlDescription;
 		this.image = image;
 	}
 	/**
-	 * @return the productLine
+	 * @return the id
 	 */
-	public String getProductLine() {
-		return productLine;
+	public Long getId() {
+		return id;
 	}
 	/**
-	 * @param productLine the productLine to set
+	 * @param id the id to set
 	 */
-	public void setProductLine(String productLine) {
-		this.productLine = productLine;
+	public void setId(Long id) {
+		this.id = id;
+	}
+	/**
+	 * @return the productLinesName
+	 */
+	public String getProductLinesName() {
+		return productLinesName;
+	}
+	/**
+	 * @param productLinesName the productLinesName to set
+	 */
+	public void setProductLinesName(String productLinesName) {
+		this.productLinesName = productLinesName;
 	}
 	/**
 	 * @return the textDescription
@@ -97,9 +120,10 @@ public class Productlines {
 	}
 	@Override
 	public String toString() {
-		return "Productlines [productLine=" + productLine + ", textDescription=" + textDescription
-				+ ", htmlDescription=" + htmlDescription + ", image=" + image + "]";
+		return "ProductLines [id=" + id + ", productLinesName=" + productLinesName + ", textDescription="
+				+ textDescription + ", htmlDescription=" + htmlDescription + ", image=" + image + "]";
 	}
-
+	
+	
 	
 }

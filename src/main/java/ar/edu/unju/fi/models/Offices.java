@@ -2,6 +2,9 @@ package ar.edu.unju.fi.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -11,8 +14,9 @@ import org.springframework.stereotype.Component;
 @Table(name="OFFICES")
 public class Offices {	
 	
+	@Id
 	@Column(name = "offic_officeCode")
-	private int officeCode;
+	private Long officeCode;//int clave principal
 	
 	@Column(name = "offic_city")
 	private String city;
@@ -55,7 +59,7 @@ public class Offices {
 	 * @param postalCode
 	 * @param territory
 	 */
-	public Offices(int officeCode, String city, int phone, String addressLine1, String addressLine2, String state,
+	public Offices(Long officeCode, String city, int phone, String addressLine1, String addressLine2, String state,
 			String country, String postalCode, String territory) {
 		super();
 		this.officeCode = officeCode;
@@ -71,13 +75,13 @@ public class Offices {
 	/**
 	 * @return the officeCode
 	 */
-	public int getOfficeCode() {
+	public Long getOfficeCode() {
 		return officeCode;
 	}
 	/**
 	 * @param officeCode the officeCode to set
 	 */
-	public void setOfficeCode(int officeCode) {
+	public void setOfficeCode(Long officeCode) {
 		this.officeCode = officeCode;
 	}
 	/**
@@ -185,4 +189,4 @@ public class Offices {
 	
 	
 	
-}
+	}

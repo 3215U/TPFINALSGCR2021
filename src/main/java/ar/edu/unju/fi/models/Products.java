@@ -2,12 +2,15 @@ package ar.edu.unju.fi.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,11 +18,12 @@ import org.springframework.stereotype.Component;
 @Table(name="PRODUCTS")
 public class Products {
 	
-	@ManyToOne
-	@Column(name = "produc_code")
-	private String productCode;//es varchar
+
+	@Id
+	@Column(name = "produc_id")
+	private Long productCode;//es varchar
 	
-	@OneToOne
+	
 	@Column(name = "produc_name")
 	private String productName;
 	
@@ -43,6 +47,16 @@ public class Products {
 	
 	@Column(name = "produc_msrp")
 	private double MSRP;
+	
+	@Autowired
+	@OneToOne(mappedBy = "products")
+	@JoinColumn(name="Orderdetails_id")
+	private OrderDetails orderDetails;
+
+	
+	@ManyToOne
+	@Autowired
+	private ProductLines productLines;
 	/**
 	 * 
 	 */
@@ -60,9 +74,10 @@ public class Products {
 	 * @param quantityInStock
 	 * @param buyPrice
 	 * @param mSRP
+	 * @param productLines
 	 */
-	public Products(String productCode, String productName, String productLine, String productScale,
-			String productVendor, String productDescription, int quantityInStock, double buyPrice, double mSRP) {
+	public Products(Long productCode, String productName, String productLine, String productScale, String productVendor,
+			String productDescription, int quantityInStock, double buyPrice, double mSRP, ProductLines productLines) {
 		super();
 		this.productCode = productCode;
 		this.productName = productName;
@@ -73,17 +88,18 @@ public class Products {
 		this.quantityInStock = quantityInStock;
 		this.buyPrice = buyPrice;
 		MSRP = mSRP;
+		this.productLines = productLines;
 	}
 	/**
 	 * @return the productCode
 	 */
-	public String getProductCode() {
+	public Long getProductCode() {
 		return productCode;
 	}
 	/**
 	 * @param productCode the productCode to set
 	 */
-	public void setProductCode(String productCode) {
+	public void setProductCode(Long productCode) {
 		this.productCode = productCode;
 	}
 	/**
@@ -182,13 +198,25 @@ public class Products {
 	public void setMSRP(double mSRP) {
 		MSRP = mSRP;
 	}
+	/**
+	 * @return the productLines
+	 */
+	public ProductLines getProductLines() {
+		return productLines;
+	}
+	/**
+	 * @param productLines the productLines to set
+	 */
+	public void setProductLines(ProductLines productLines) {
+		this.productLines = productLines;
+	}
 	@Override
 	public String toString() {
 		return "Products [productCode=" + productCode + ", productName=" + productName + ", productLine=" + productLine
 				+ ", productScale=" + productScale + ", productVendor=" + productVendor + ", productDescription="
 				+ productDescription + ", quantityInStock=" + quantityInStock + ", buyPrice=" + buyPrice + ", MSRP="
-				+ MSRP + "]";
+				+ MSRP + ", productLines=" + productLines + "]";
 	}
-
 	
+
 }

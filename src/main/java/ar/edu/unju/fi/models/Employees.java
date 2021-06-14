@@ -2,16 +2,25 @@ package ar.edu.unju.fi.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 @Entity
 @Table(name="EMPLOYEES")
 public class Employees {
-	@Column(name = "empl_employeenumber")
-	private int employeeNumber;
+	
+
+	@Id
+	@Column(name = "empl_employeenumber")//le pongo id empl_id
+	private Long employeeNumber;//int clave principal//int clave principal
 	
 	@Column(name = "empl_lastname")
 	private String lastName;
@@ -28,11 +37,21 @@ public class Employees {
 	@Column(name = "empl_officecode")
 	private String officeCode;
 	
-	@Column(name = "empl_reportsto")
-	private int reportsTo;//
 	
-	@Column(name = "jobtitle")
+	@Column(name = "empl_jobtitle")
 	private String jobTitle;
+	
+	
+	
+	@ManyToOne
+	@Autowired
+	@JoinColumn(name="offic_officeCode")
+	private Offices offices;
+	
+	@Autowired
+	@ManyToOne
+	@JoinColumn(name="reportsTo")
+	private Employees employees;
 	/**
 	 * 
 	 */
@@ -47,11 +66,12 @@ public class Employees {
 	 * @param extension
 	 * @param email
 	 * @param officeCode
-	 * @param reportsTo
 	 * @param jobTitle
+	 * @param offices
+	 * @param employees
 	 */
-	public Employees(int employeeNumber, String lastName, String firstName, String extension, String email,
-			String officeCode, int reportsTo, String jobTitle) {
+	public Employees(Long employeeNumber, String lastName, String firstName, String extension, String email,
+			String officeCode, String jobTitle, Offices offices, Employees employees) {
 		super();
 		this.employeeNumber = employeeNumber;
 		this.lastName = lastName;
@@ -59,19 +79,20 @@ public class Employees {
 		this.extension = extension;
 		this.email = email;
 		this.officeCode = officeCode;
-		this.reportsTo = reportsTo;
 		this.jobTitle = jobTitle;
+		this.offices = offices;
+		this.employees = employees;
 	}
 	/**
 	 * @return the employeeNumber
 	 */
-	public int getEmployeeNumber() {
+	public Long getEmployeeNumber() {
 		return employeeNumber;
 	}
 	/**
 	 * @param employeeNumber the employeeNumber to set
 	 */
-	public void setEmployeeNumber(int employeeNumber) {
+	public void setEmployeeNumber(Long employeeNumber) {
 		this.employeeNumber = employeeNumber;
 	}
 	/**
@@ -135,18 +156,6 @@ public class Employees {
 		this.officeCode = officeCode;
 	}
 	/**
-	 * @return the reportsTo
-	 */
-	public int getReportsTo() {
-		return reportsTo;
-	}
-	/**
-	 * @param reportsTo the reportsTo to set
-	 */
-	public void setReportsTo(int reportsTo) {
-		this.reportsTo = reportsTo;
-	}
-	/**
 	 * @return the jobTitle
 	 */
 	public String getJobTitle() {
@@ -158,13 +167,37 @@ public class Employees {
 	public void setJobTitle(String jobTitle) {
 		this.jobTitle = jobTitle;
 	}
+	/**
+	 * @return the offices
+	 */
+	public Offices getOffices() {
+		return offices;
+	}
+	/**
+	 * @param offices the offices to set
+	 */
+	public void setOffices(Offices offices) {
+		this.offices = offices;
+	}
+	/**
+	 * @return the employees
+	 */
+	public Employees getEmployees() {
+		return employees;
+	}
+	/**
+	 * @param employees the employees to set
+	 */
+	public void setEmployees(Employees employees) {
+		this.employees = employees;
+	}
 	@Override
 	public String toString() {
 		return "Employees [employeeNumber=" + employeeNumber + ", lastName=" + lastName + ", firstName=" + firstName
-				+ ", extension=" + extension + ", email=" + email + ", officeCode=" + officeCode + ", reportsTo="
-				+ reportsTo + ", jobTitle=" + jobTitle + "]";
+				+ ", extension=" + extension + ", email=" + email + ", officeCode=" + officeCode + ", jobTitle="
+				+ jobTitle + ", offices=" + offices + ", employees=" + employees + "]";
 	}
+
 	
-
-
+	
 }

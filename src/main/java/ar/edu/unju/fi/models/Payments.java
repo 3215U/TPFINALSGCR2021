@@ -4,6 +4,11 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -14,16 +19,22 @@ import org.springframework.stereotype.Component;
 public class Payments {
 	
 	@Column(name="pay_customernumber")
-	private int customerNumber;
+	private Long customerNumber;//int clave foreanea
 	
-	@Column(name="pay_checknumber")
-	private Boolean checkNumber;
+	@Id
+	@Column(name="pay_checknumber")//varchar clave principal
+	private Long checkNumber;
 	
 	@Column(name="pay_paymentdate")
 	private LocalDate paymentDate;
 	
 	@Column(name="pay_amount")
 	private double amount;
+	
+	
+	@OneToOne
+	@JoinColumn(name="cust_numero")
+	private Customers customers;
 	/**
 	 * 
 	 */
@@ -36,36 +47,38 @@ public class Payments {
 	 * @param checkNumber
 	 * @param paymentDate
 	 * @param amount
+	 * @param customers
 	 */
-	public Payments(int customerNumber, Boolean checkNumber, LocalDate paymentDate, double amount) {
+	public Payments(Long customerNumber, Long checkNumber, LocalDate paymentDate, double amount, Customers customers) {
 		super();
 		this.customerNumber = customerNumber;
 		this.checkNumber = checkNumber;
 		this.paymentDate = paymentDate;
 		this.amount = amount;
+		this.customers = customers;
 	}
 	/**
 	 * @return the customerNumber
 	 */
-	public int getCustomerNumber() {
+	public Long getCustomerNumber() {
 		return customerNumber;
 	}
 	/**
 	 * @param customerNumber the customerNumber to set
 	 */
-	public void setCustomerNumber(int customerNumber) {
+	public void setCustomerNumber(Long customerNumber) {
 		this.customerNumber = customerNumber;
 	}
 	/**
 	 * @return the checkNumber
 	 */
-	public Boolean getCheckNumber() {
+	public Long getCheckNumber() {
 		return checkNumber;
 	}
 	/**
 	 * @param checkNumber the checkNumber to set
 	 */
-	public void setCheckNumber(Boolean checkNumber) {
+	public void setCheckNumber(Long checkNumber) {
 		this.checkNumber = checkNumber;
 	}
 	/**
@@ -92,11 +105,24 @@ public class Payments {
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
+	/**
+	 * @return the customers
+	 */
+	public Customers getCustomers() {
+		return customers;
+	}
+	/**
+	 * @param customers the customers to set
+	 */
+	public void setCustomers(Customers customers) {
+		this.customers = customers;
+	}
 	@Override
 	public String toString() {
 		return "Payments [customerNumber=" + customerNumber + ", checkNumber=" + checkNumber + ", paymentDate="
-				+ paymentDate + ", amount=" + amount + "]";
+				+ paymentDate + ", amount=" + amount + ", customers=" + customers + "]";
 	}
+
 	
 	
 }
