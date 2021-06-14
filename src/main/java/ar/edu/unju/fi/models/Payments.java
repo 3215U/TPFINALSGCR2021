@@ -11,16 +11,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 @Entity
 @Table(name="PAYMENTS")
 public class Payments {
-	
-	@Column(name="pay_customernumber")
-	private Long customerNumber;//int clave foreanea
-	
 	@Id
 	@Column(name="pay_checknumber")//varchar clave principal
 	private Long checkNumber;
@@ -31,7 +28,7 @@ public class Payments {
 	@Column(name="pay_amount")
 	private double amount;
 	
-	
+	@Autowired
 	@OneToOne
 	@JoinColumn(name="cust_numero")
 	private Customers customers;
@@ -43,31 +40,17 @@ public class Payments {
 		// TODO Auto-generated constructor stub
 	}
 	/**
-	 * @param customerNumber
 	 * @param checkNumber
 	 * @param paymentDate
 	 * @param amount
 	 * @param customers
 	 */
-	public Payments(Long customerNumber, Long checkNumber, LocalDate paymentDate, double amount, Customers customers) {
+	public Payments(Long checkNumber, LocalDate paymentDate, double amount, Customers customers) {
 		super();
-		this.customerNumber = customerNumber;
 		this.checkNumber = checkNumber;
 		this.paymentDate = paymentDate;
 		this.amount = amount;
 		this.customers = customers;
-	}
-	/**
-	 * @return the customerNumber
-	 */
-	public Long getCustomerNumber() {
-		return customerNumber;
-	}
-	/**
-	 * @param customerNumber the customerNumber to set
-	 */
-	public void setCustomerNumber(Long customerNumber) {
-		this.customerNumber = customerNumber;
 	}
 	/**
 	 * @return the checkNumber
@@ -119,10 +102,8 @@ public class Payments {
 	}
 	@Override
 	public String toString() {
-		return "Payments [customerNumber=" + customerNumber + ", checkNumber=" + checkNumber + ", paymentDate="
-				+ paymentDate + ", amount=" + amount + ", customers=" + customers + "]";
+		return "Payments [checkNumber=" + checkNumber + ", paymentDate=" + paymentDate + ", amount=" + amount
+				+ ", customers=" + customers + "]";
 	}
-
-	
 	
 }

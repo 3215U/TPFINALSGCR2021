@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,10 +35,12 @@ public class OrderDetails {
 	@OneToOne
 	@JoinColumn(name="produc_id")
 	private Products products;
-
-
-	@OneToOne(mappedBy = "orderDetails")
+	
+	@Autowired
+	@OneToOne
+	@JoinColumn(name = "orders_number")
 	private Orders orders;
+	
 	/**
 	 * 
 	 */

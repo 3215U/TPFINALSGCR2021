@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.15.3/css/all.css}" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link th:rel="stylesheet" th:href="@{css/styles.css}">
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.6.0/css/bootstrap.min.css}">
+    <link rel="shortcut icon" href="img/favicon.png"/>
+    <title>Details</title>
+</head>
+<body class="body-gam">
+	<!--   HEADER    -->
+  	<div th:replace="layouts/header :: header" ></div>
+  	
+  	 <div class="container">
+        <div class="show-case-2">
+            <h1 class="text-center text-light text-uppercase pt-5 font-weight-bold">Registrá un nuevo vehículo</h1>
+        </div>
+    </div>
+    <!--Formulario de alta -->
+    <div class="row">
+    
+        <div class="col-md-8 d-block m-auto">
+            <form th:action="@{/products-save}" method="POST" th:object="${products}" class="text-light mb-4 px-4 py-4 bg-pv--form rounded gam-overflow">
+                <div class="row d-flex justify-content-center">
+                    <div class="form-group col-md-5">
+                      <label for="nombre">Numero Order <i class="fas fa-signature text-light ml-2"></i></label>
+                      <input th:field="*{orderNumber}" type="text" class="form-control" id="nombre">
+                    </div>
+                    <div class="form-group col-md-5">
+                      <label for="marca">Fecha de orden</label>
+                      <input th:field="*{orderDate}" type="date" class="form-control" id="marca">
+                    </div>
+                </div>     
+                <div class="row d-flex justify-content-center">
+                    <div class="form-group col-md-5">
+                        <label for="stock">Fecha Requerida<i class="fas fa-sort-numeric-up-alt text-light ml-2"></i></label>
+                        <input th:field="*{requiredDate}" type="date" class="form-control" id="stock">
+                      </div>
+                                        
+                    <div class="form-group col-md-5">
+                        <label for="precio">Fecha de Envio<i class="fas fa-hand-holding-usd text-light ml-2"></i></label>
+                        <input th:field="*{shippedDate}" type="date" class="form-control" id="precio">
+                    </div>   
+                    
+                </div>   
+                <div class="row d-flex justify-content-center">
+                    <div class="form-group col-md-5">
+                        <label for="precioMSRP">Status</label>
+                        <input th:field="*{status}" type="text" class="form-control" id="precioMSRP">
+                    </div>
+                    
+                    <div class="form-group col-md-5">
+                        <label for="escalaProducto">Comentario</label>
+                        <input th:field="*{comments}" type="text" class="form-control" id="escalaProducto">
+                    </div>
+                </div>    
+                <div class="row d-flex justify-content-center">
+                    <div class="form-group col-md-5">
+                        <label for="productoVendor">Numro cliente</label>
+                        <input th:field="*{customerNumber}" type="number" class="form-control" id="productoVendor">
+                      </div>
+                
+                </div>    
+                      
+                    <div class="form-group col-md-5">
+                        <label for="exampleFormControlTextarea1">Detalle de orden <i class="far fa-keyboard text-light ml-2"></i></label>
+                        <textarea th:field="*{orderDetails}" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>                   
+                </div>
+                <div class="row ml-5 pl-4">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+            
+            
+        </div>
+    </div>
+  
+    <script th:src="@{webjars/jquery/3.5.1/jquery.min.js}"></script>
+    <script th:src="@{webjars/popper.js/1.16.1-lts/popper.min.js}"></script>
+    <script th:src="@{webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>
+</body>
+</html>

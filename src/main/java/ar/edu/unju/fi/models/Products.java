@@ -1,3 +1,4 @@
+
 package ar.edu.unju.fi.models;
 
 import javax.persistence.Column;
@@ -50,13 +51,14 @@ public class Products {
 	
 	@Autowired
 	@OneToOne(mappedBy = "products")
-	@JoinColumn(name="Orderdetails_id")
 	private OrderDetails orderDetails;
 
-	
 	@ManyToOne
 	@Autowired
+	@JoinColumn(name="prodL_id")
 	private ProductLines productLines;
+
+	
 	/**
 	 * 
 	 */

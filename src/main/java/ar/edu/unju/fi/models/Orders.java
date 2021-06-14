@@ -4,6 +4,7 @@ package ar.edu.unju.fi.models;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,7 +20,6 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name="ORDERS")
 public class Orders {
-
 
 	@Id
 	@Column(name="orders_number")
@@ -42,9 +42,9 @@ public class Orders {
 	
 	@Column(name="orders_customernumber")
 	private int customerNumber;
-
-	@OneToOne
-	@JoinColumn(name = "orderDet_orderNumber")
+	
+	@Autowired
+	@OneToOne(mappedBy = "orders")
 	private OrderDetails orderDetails;
 	
 	@ManyToOne

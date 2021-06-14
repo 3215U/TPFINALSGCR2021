@@ -41,8 +41,6 @@ public class Employees {
 	@Column(name = "empl_jobtitle")
 	private String jobTitle;
 	
-	
-	
 	@ManyToOne
 	@Autowired
 	@JoinColumn(name="offic_officeCode")
